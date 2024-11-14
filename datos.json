@@ -1,0 +1,54 @@
+{
+    "productos": [
+        {
+            "codigo": 1,
+            "nombre": "Aceite",
+            "dniProveedor": 1,
+            "stock": 120,
+            "precio": 1200
+        },
+        {
+            "codigo": 2,
+            "nombre": "Fideos",
+            "dniProveedor": 2,
+            "stock": 100,
+            "precio": 1000
+        }
+    ],
+    "proveedores": [
+        {
+            "dni": 1,
+            "nombre": "Lucia Menoyo",
+            "telefono": 2991111111
+        },
+        {
+            "dni": 2,
+            "nombre": "Maria Caldo",
+            "telefono": 2991111111
+        }
+    ],
+    "clientes": [
+        {
+            "dni": 12,
+            "nombre": "Pedro Garcia",
+            "telefono": 28877433
+        },
+        {
+            "dni": 24,
+            "nombre": "Mercedes Sosa",
+            "telefono": 29918511
+        }
+    ],
+    "vendedores": [
+        {
+            "id": 122,
+            "nombre": "Horacio Rincon",
+            "sector": "Almacen"
+        },
+        {
+            "id": 452,
+            "nombre": "Malena Carrillo",
+            "sector": "Lacteos"
+        }
+    ]
+}
