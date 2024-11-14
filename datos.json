@@ -4,27 +4,31 @@
             "codigo": 1,
             "nombre": "Aceite",
             "dniProveedor": 1,
-            "stock": 120,
-            "precio": 1200
+            "stock": 0,
+            "precio": 1200,
+            "Estado": "ACTIVO"
         },
         {
             "codigo": 2,
             "nombre": "Fideos",
             "dniProveedor": 2,
-            "stock": 100,
-            "precio": 1000
+            "stock": 200,
+            "precio": 1000,
+            "Estado": "ACTIVO"
         }
     ],
     "proveedores": [
         {
             "dni": 1,
             "nombre": "Lucia Menoyo",
-            "telefono": 2991111111
+            "telefono": 2991111111,
+            "Estado": "ACTIVO"
         },
         {
             "dni": 2,
-            "nombre": "Maria Caldo",
-            "telefono": 2991111111
+            "nombre": "Lucrecia Menoyo",
+            "telefono": 2991111111,
+            "Estado": "ACTIVO"
         }
     ],
     "clientes": [
@@ -43,12 +47,14 @@
         {
             "id": 122,
             "nombre": "Horacio Rincon",
-            "sector": "Almacen"
+            "sector": "Almacen",
+            "Estado": "ACTIVO"
         },
         {
             "id": 452,
             "nombre": "Malena Carrillo",
-            "sector": "Lacteos"
+            "sector": "Lacteos",
+            "Estado": "ACTIVO"
         }
     ]
 }

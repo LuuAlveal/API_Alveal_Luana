@@ -31,10 +31,65 @@ app.get('/ListarProductos', (req, res) => {
     res.json(datos.productos)
 });
 // BUSCAR PRODUCTO POR SU CODIGO
-app.get('/BuscarProducto/:codigo', (req, res) => {
+app.get('/BuscarCodigo/:codigo', (req, res) => {
     const datos = leerDatos();
     const codigo = parseInt(req.params.codigo) 
     const producto = datos.productos.find((producto) => producto.codigo === codigo);
+    if(producto){
+        res.json(producto)
+    }else{
+        res.status(404).send("No existe ese producto");
+    }
+});
+// BUSCAR PRODUCTO POR SU NOMBRE
+app.get('/BuscarNombre/:nombre', (req, res) => {
+    const datos = leerDatos();
+    const nombre = parseInt(req.params.nombre) 
+    const producto = datos.productos.find((producto) => producto.nombre === nombre);
+    if(producto){
+        res.json(producto)
+    }else{
+        res.status(404).send("No existe ese producto");
+    }
+});
+// BUSCAR PRODUCTO POR EL DNI DEL PROVEEDOR
+app.get('/BuscarDniProveedor/:dniProveedor', (req, res) => {
+    const datos = leerDatos();
+    const dniProveedor = parseInt(req.params.dniProveedor) 
+    const producto = datos.productos.find((producto) => producto.dniProveedor === dniProveedor);
+    if(producto){
+        res.json(producto)
+    }else{
+        res.status(404).send("No existe ese producto");
+    }
+});
+// BUSCAR PRODUCTOS SIN STOCK
+app.get('/BuscarStock/0', (req, res) => {
+    const datos = leerDatos();
+    const stock = parseInt(req.params.stock) 
+    const producto = datos.productos.find((producto) => producto.stock === stock);
+    if(producto){
+        res.json(producto)
+    }else{
+        res.status(404).send("No existen productos sin stock");
+    }
+});
+// BUSCAR PRODUCTO POR SU PRECIO
+app.get('/BuscarPrecio/:precio', (req, res) => {
+    const datos = leerDatos();
+    const precio = parseInt(req.params.precio) 
+    const producto = datos.productos.find((producto) => producto.precio === precio);
+    if(producto){
+        res.json(producto)
+    }else{
+        res.status(404).send("No existe ese producto");
+    }
+});
+// BUSCAR PRODUCTO POR ESTADO
+app.get('/BuscarEstado/:estado', (req, res) => {
+    const datos = leerDatos();
+    const estado = parseInt(req.params.estado) 
+    const producto = datos.productos.find((producto) => producto.estado === estado);
     if(producto){
         res.json(producto)
     }else{
@@ -106,10 +161,43 @@ app.get('/ListarProveedores', (req, res) => {
     res.json(datos.proveedores)
 });
 // BUSCAR PROVEEDORES POR SU DNI
-app.get('/BuscarProveedor/:dni', (req, res) => {
+app.get('/BuscarDniProveedor/:dni', (req, res) => {
     const datos = leerDatos();
     const dni = parseInt(req.params.dni) 
     const proveedor = datos.proveedores.find((proveedor) => proveedor.dni === dni);
+    if(proveedor){
+        res.json(proveedor)
+    }else{
+        res.status(404).send("No existe ese proveedor");
+    }
+});
+// BUSCAR PROVEEDORES POR SU NOMBRE
+app.get('/BuscarNombreProveedor/:nombre', (req, res) => {
+    const datos = leerDatos();
+    const nombre = parseInt(req.params.nombre) 
+    const proveedor = datos.proveedores.find((proveedor) => proveedor.nombre === nombre);
+    if(proveedor){
+        res.json(proveedor)
+    }else{
+        res.status(404).send("No existe ese proveedor");
+    }
+});
+// BUSCAR PROVEEDORES POR SU TELEFONO
+app.get('/BuscarTelefonoProveedor/:telefono', (req, res) => {
+    const datos = leerDatos();
+    const telefono = parseInt(req.params.telefono) 
+    const proveedor = datos.proveedores.find((proveedor) => proveedor.telefono === telefono);
+    if(proveedor){
+        res.json(proveedor)
+    }else{
+        res.status(404).send("No existe ese proveedor");
+    }
+});
+// BUSCAR PROVEEDORES POR SU ESTADO
+app.get('/BuscarEstadoProveedor/:estado', (req, res) => {
+    const datos = leerDatos();
+    const estado = parseInt(req.params.estado) 
+    const proveedor = datos.proveedores.find((proveedor) => proveedor.estado === estado);
     if(proveedor){
         res.json(proveedor)
     }else{
@@ -173,10 +261,32 @@ app.get('/ListarClientes', (req, res) => {
     res.json(datos.clientes)
 });
 // BUSCAR CLIENTES POR SU DNI
-app.get('/BuscarCliente/:dni', (req, res) => {
+app.get('/BuscarDniCliente/:dni', (req, res) => {
     const datos = leerDatos();
     const dni = parseInt(req.params.dni) 
     const cliente = datos.clientes.find((Cliente) => cliente.dni === dni);
+    if(cliente){
+        res.json(cliente)
+    }else{
+        res.status(404).send("No existe ese cliente");
+    }
+});
+// BUSCAR CLIENTES POR SU NOMBRE
+app.get('/BuscarNombreCliente/:nombre', (req, res) => {
+    const datos = leerDatos();
+    const nombre = parseInt(req.params.nombre) 
+    const cliente = datos.clientes.find((Cliente) => cliente.nombre === nombre);
+    if(cliente){
+        res.json(cliente)
+    }else{
+        res.status(404).send("No existe ese cliente");
+    }
+});
+// BUSCAR CLIENTES POR SU TELEFONO
+app.get('/BuscarTelefonoCliente/:telefono', (req, res) => {
+    const datos = leerDatos();
+    const telefono = parseInt(req.params.telefono) 
+    const cliente = datos.clientes.find((cliente) => cliente.telefono === telefono);
     if(cliente){
         res.json(cliente)
     }else{
@@ -220,7 +330,7 @@ app.get('/ListarVendedores', (req, res) => {
     res.json(datos.vendedores)
 });
 // BUSCAR VENDEDORES POR SU ID
-app.get('/BuscarVendedor/:id', (req, res) => {
+app.get('/BuscarIdVendedor/:id', (req, res) => {
     const datos = leerDatos();
     const id = parseInt(req.params.id) 
     const vendedor = datos.vendedores.find((vendedor) => vendedor.id === id);
@@ -230,8 +340,30 @@ app.get('/BuscarVendedor/:id', (req, res) => {
         res.status(404).send("No existe ese vendedor");
     }
 });
-// FILTRAR VENDEDORES POR SECTOR
-app.get('/BuscarVendedor/:sector', (req, res) => {
+// BUSCAR VENDEDORES POR SECTOR
+app.get('/BuscarSectorVendedor/:sector', (req, res) => {
+    const datos = leerDatos();
+    const sector = parseInt(req.params.sector) 
+    const vendedor = datos.vendedores.find((vendedor) => vendedor.sector === sector);
+    if(vendedor){
+        res.json(vendedor)
+    }else{
+        res.status(404).send("No existe ese sector");
+    }
+});
+// BUSCAR VENDEDORES POR NOMBRE
+app.get('/BuscarNombreVendedor/:sector', (req, res) => {
+    const datos = leerDatos();
+    const sector = parseInt(req.params.sector) 
+    const vendedor = datos.vendedores.find((vendedor) => vendedor.sector === sector);
+    if(vendedor){
+        res.json(vendedor)
+    }else{
+        res.status(404).send("No existe ese sector");
+    }
+});
+// BUSCAR VENDEDORES POR ESTADO
+app.get('/BuscarEstadoVendedor/:sector', (req, res) => {
     const datos = leerDatos();
     const sector = parseInt(req.params.sector) 
     const vendedor = datos.vendedores.find((vendedor) => vendedor.sector === sector);
